@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-
+import { Auth } from './container/AuthContainer';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 const BasicExample = () => (
@@ -17,6 +17,10 @@ const BasicExample = () => (
         <li>
           <Link to="/topics">Topics</Link>
         </li>
+
+        <li>
+          <Link to="/auth">Auth</Link>
+        </li>
       </ul>
 
       <hr />
@@ -24,6 +28,7 @@ const BasicExample = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
+      <Route path="/auth" component={Auth} />
     </div>
   </Router>
 );
