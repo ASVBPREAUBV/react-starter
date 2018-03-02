@@ -1,78 +1,37 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { Main } from './container/Main';
 import { Auth } from './container/AuthContainer';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-const BasicExample = () => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      //fakeAuth.isAuthenticated
+      true ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/auth',
+            state: { from: props.location }
+          }}
+        />
+      )
+    }
+    p
+  />
+);
+
+const App = () => (
   <Router>
     <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/topics">Topics</Link>
-        </li>
-
-        <li>
-          <Link to="/auth">Auth</Link>
-        </li>
-      </ul>
-
-      <hr />
-
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/topics" component={Topics} />
       <Route path="/auth" component={Auth} />
+      <PrivateRoute path="/prod" component={Main} />
     </div>
   </Router>
 );
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
-
-const Topics = ({ match }) => (
-  <div>
-    <h2>Topics</h2>
-    <ul>
-      <li>
-        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/components`}>Components</Link>
-      </li>
-      <li>
-        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-      </li>
-    </ul>
-
-    <Route path={`${match.url}/:topicId`} component={Topic} />
-    <Route
-      exact
-      path={match.url}
-      render={() => <h3>Please select a topic.</h3>}
-    />
-  </div>
-);
-
-const Topic = ({ match }) => (
-  <div>
-    <h3>{match.params.topicId}</h3>
-  </div>
-);
-
-export default BasicExample;
+export default App;
