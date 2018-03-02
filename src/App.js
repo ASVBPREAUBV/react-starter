@@ -3,7 +3,8 @@ import './App.css';
 import 'antd/dist/antd.css';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { Main } from './container/Main';
-import { Auth } from './container/AuthContainer';
+import { Auth } from './container/Auth';
+import * as Parse from 'parse';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

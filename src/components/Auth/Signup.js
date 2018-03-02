@@ -14,6 +14,24 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+
+        var user = new Parse.User();
+        user.set('username', 'myname');
+        user.set('password', 'mypass');
+        user.set('email', 'emai@example.com');
+
+        // other fields can be set just like with Parse.Object
+
+        user.signUp(null, {
+          success: function(user) {
+            // Hooray! Let them use the app now.
+            console.log(user);
+          },
+          error: function(user, error) {
+            // Show the error message somewhere and let the user try again.
+            console.error('user.signUp: ', error);
+          }
+        });
       }
     });
   };
