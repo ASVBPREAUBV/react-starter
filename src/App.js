@@ -31,15 +31,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 const App = () => (
-  <div>
-    <TopNav />
-    <Router>
+  <Router>
+    <div>
+      <TopNav />
       <Switch>
         <Route path="/auth" component={Auth} />
         <PrivateRoute path="/" component={Main} />
       </Switch>
-    </Router>
-  </div>
+    </div>
+  </Router>
 );
 
 export default App;
