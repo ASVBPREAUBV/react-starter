@@ -1,17 +1,22 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from 'react-router-dom';
 import { Main } from './container/Main';
 import { Auth } from './container/Auth';
 import * as Parse from 'parse';
+import { TopNav } from './components/TopNav';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      //fakeAuth.isAuthenticated
-      true ? (
+      Parse.User.current() ? (
         <Component {...props} />
       ) : (
         <Redirect
@@ -22,17 +27,19 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         />
       )
     }
-    p
   />
 );
 
 const App = () => (
-  <Router>
-    <div>
-      <Route path="/auth" component={Auth} />
-      <PrivateRoute path="/prod" component={Main} />
-    </div>
-  </Router>
+  <div>
+    <TopNav />
+    <Router>
+      <Switch>
+        <Route path="/auth" component={Auth} />
+        <PrivateRoute path="/" component={Main} />
+      </Switch>
+    </Router>
+  </div>
 );
 
 export default App;

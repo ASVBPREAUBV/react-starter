@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Checkbox, Form, Input, Select } from 'antd';
 import * as Parse from 'parse';
+import { withRouter } from 'react-router-dom';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -16,9 +17,9 @@ class RegistrationForm extends React.Component {
         console.log('Received values of form: ', values);
 
         var user = new Parse.User();
-        user.set('username', 'myname');
-        user.set('password', 'mypass');
-        user.set('email', 'emai@example.com');
+        user.set('username', values.email);
+        user.set('password', values.password);
+        user.set('email', values.email);
 
         // other fields can be set just like with Parse.Object
 
@@ -154,4 +155,4 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export const Signup = Form.create()(RegistrationForm);
+export const Signup = withRouter(Form.create()(RegistrationForm));
