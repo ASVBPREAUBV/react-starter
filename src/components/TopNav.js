@@ -1,9 +1,6 @@
 import React from 'react';
 import { Icon, Menu } from 'antd';
-import * as Parse from 'parse';
 import { withRouter } from 'react-router-dom';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 
 const TopNavFunction = () => {
   return (
@@ -18,12 +15,10 @@ const TopNavFunction = () => {
         <a
           onClick={() => {
             console.log('onClick onclick log out');
-            Parse.User.logOut();
           }}
         >
           {' '}
           <Icon type="appstore" />
-          {Parse.User.isCurrent ? 'logged in' : 'logged out'}
         </a>
       </Menu.Item>
     </Menu>

@@ -1,9 +1,31 @@
+# React Starter
+
+react, react create app
+
+## Goal
+Empty project with all the empty standard screens.
+
+- [ ] remove rest of parse
+- [ ] login
+- [ ] password forgot
+- [ ] signup
+- [ ] profile
+
+## Info
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 compontents by [ant.design](https://ant.design/)
 
-react, react-router, parse js client
+react, react-router
 
-1. npm i
-2. npm start
-3. localhost:3000
+##Development
+Install all dependencies
+```
+npm install
+```
+Start development
+```
+npm run dev
+```
+go to localhost:3000 in browser

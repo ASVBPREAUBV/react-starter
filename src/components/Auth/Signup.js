@@ -1,9 +1,7 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input, Select } from 'antd';
-import * as Parse from 'parse';
+import { Button, Checkbox, Form, Input } from 'antd';
 import { withRouter } from 'react-router-dom';
 const FormItem = Form.Item;
-const Option = Select.Option;
 
 class RegistrationForm extends React.Component {
   state = {
@@ -15,24 +13,6 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-
-        var user = new Parse.User();
-        user.set('username', values.email);
-        user.set('password', values.password);
-        user.set('email', values.email);
-
-        // other fields can be set just like with Parse.Object
-
-        user.signUp(null, {
-          success: function(user) {
-            // Hooray! Let them use the app now.
-            console.log(user);
-          },
-          error: function(user, error) {
-            // Show the error message somewhere and let the user try again.
-            console.error('user.signUp: ', error);
-          }
-        });
       }
     });
   };

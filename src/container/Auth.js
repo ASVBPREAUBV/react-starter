@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { Login } from '../components/Auth/Login';
 import { Test } from '../components/test';
 import { Signup } from '../components/Auth/Signup';
-import { TopNav } from '../components/TopNav';
 
 export const Auth = ({ match }) => (
   <div>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Checkbox, Form, Icon, Input, Layout } from 'antd';
-import { Redirect, withRouter } from 'react-router-dom';
-const { Header, Footer, Sider, Content } = Layout;
+import { Button, Checkbox, Form, Icon, Input } from 'antd';
+import { Redirect } from 'react-router-dom';
 const FormItem = Form.Item;
 
 export class Login1 extends React.Component {
@@ -38,9 +37,6 @@ class NormalLoginForm extends React.Component {
         console.log('Received values of form: ', values);
       }
     });
-    /*PARSE.authenticate(() => {
-         this.setState({redirectToReferrer: true});
-         });*/
   };
 
   render() {

@@ -9,14 +9,13 @@ import {
 } from 'react-router-dom';
 import { Main } from './container/Main';
 import { Auth } from './container/Auth';
-import * as Parse from 'parse';
 import { TopNav } from './components/TopNav';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      Parse.User.current() ? (
+      true ? (
         <Component {...props} />
       ) : (
         <Redirect
