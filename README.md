@@ -5,7 +5,6 @@ react, react create app
 ## Goal
 Empty project with all the empty standard screens.
 
-- [ ] remove rest of parse
 - [ ] login
 - [ ] password forgot
 - [ ] signup
