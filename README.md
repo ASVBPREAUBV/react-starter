@@ -18,7 +18,7 @@ compontents by [ant.design](https://ant.design/)
 
 react, react-router
 
-##Development
+## Development
 Install all dependencies
 ```
 npm install
