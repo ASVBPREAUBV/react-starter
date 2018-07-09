@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, Layout, Menu } from 'antd';
+import { Websocket } from '../components/Websocket';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,7 +28,7 @@ export const Main = () => (
       <Header style={{ background: '#fff', padding: 0 }}>Header Content</Header>
       <Content style={{ margin: '24px 16px 0' }}>
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-          / root body content
+          <Websocket />
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
